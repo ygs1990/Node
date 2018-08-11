@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Form submit</title>
+  </head>
+  <body>
+    <form action="http://127.0.0.1:3000/form" method="post" onsubmit="return formSubmit" enctype="multipart/form-data">
+    	<p>
+    		<input type="text" name="username" placeholder="username" autocomplete="off" autofocus>    		
+    	</p>
+    	<p>
+    		<input type="password" name="password" placeholder="password">    		
+    	</p>
+    	<p>
+    		<input type="text" name="mobile" placeholder="mobile">    		
+    	</p>
+    	<p>
+    		<input type="email" name="email" placeholder="email">    		
+    	</p>
+    	<p>
+    		<input type="file" name="avatar" multiple>
+    	</p>
+    	<p>
+    		<input type="file" name="photo" multiple>
+    	</p>
+    	<button type="submit">Send</button>
+    </form>
+    <script>
+    	function formSubmit(data) {
+            console.log(data);
+    		return true;
+    	}
+    </script>
+  </body>
+</html>
