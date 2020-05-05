@@ -1,2 +1,2 @@
 # Node
-This a directory for node demos or projects.
+This is a directory for node demos or projects.
