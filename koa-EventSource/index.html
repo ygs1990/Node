@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event souce</title>
+</head>
+<body>
+  <p>EventSource demo</p>
+  <script>
+    const source = new EventSource('http://localhost:3000/es');
+    console.log('%cHello! I am EventSource instance: ', 'color: tomato; font-size: 20px', source)
+
+    // 连接正常
+    // EventSource实例下的readyState有三个值：0(connecting), 1(open), 2(closed)，正常状态为1
+    source.onopen = function () {
+      console.log('I am connecting or opening connection')
+    }; 
+
+    // 连接出错
+    source.onerror = function (e) {
+      console.log('I am an error: ', e)
+    }; 
+
+    // 自定义事件green
+    source.addEventListener('green', function (event) { 
+     console.log('%cHello! I am customized method: green', 'color: green; font-size: 20px', event);
+    });
+
+
+    // 自定义事件red
+    source.addEventListener("red", function (event) {
+     console.log('%cHello! I am customized method: red', 'color: red; font-size: 20px', event);
+    });
+
+    // 默认事件
+    source.onmessage = function (event) {
+      console.log('i fetched data: ', event)
+    }
+
+    (function selfExecutingMethod () {
+      setTimeout(() => {
+        console.log('%cYou can access the reference site: https://www.cnblogs.com/accordion/p/7764460.html', 'color: pink; font-size: 14px')
+      }, 5000)
+    }())
+  </script>
+</body>
+</html>
